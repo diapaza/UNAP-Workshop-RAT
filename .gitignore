@@ -1,0 +1,17 @@
+# Carpeta de configuración de VS Code
+.vscode/
+
+# Carpetas de compilación y distribución
+build/
+dist/
+
+# Archivo específico
+winrar-x64-711es.spec
+
+# Carpeta de cachés de Python
+__pycache__/
+
+# Carpetas personalizadas
+archivos_recibidos/
+capturas/
+directorios_recibidos/
