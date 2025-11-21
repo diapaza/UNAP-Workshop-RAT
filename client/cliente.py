@@ -186,16 +186,6 @@ class ControladorCliente:
     def _validar_ruta_existe(self, ruta, tipo=None):
         """
         Valida que una ruta exista y opcionalmente sea del tipo especificado.
-        
-        Args:
-            ruta: Ruta a validar
-            tipo: 'file' para archivo, 'dir' para directorio, None para cualquiera
-            
-        Returns:
-            True si la validación es exitosa
-            
-        Raises:
-            ValueError con mensaje descriptivo si la validación falla
         """
         if not os.path.exists(ruta):
             raise ValueError(f"La ruta no existe: {ruta}")
@@ -233,13 +223,6 @@ class ControladorCliente:
     def _usar_archivo_temporal(self, sufijo, funcion_procesamiento):
         """
         Context manager simulado para usar archivos temporales de forma segura.
-        
-        Args:
-            sufijo: Sufijo del archivo temporal (ej: '.zip', '.png')
-            funcion_procesamiento: Función que recibe la ruta temporal y la procesa
-            
-        Returns:
-            El resultado de funcion_procesamiento
         """
         temp_path = self._crear_archivo_temporal(sufijo)
         try:
@@ -254,10 +237,6 @@ class ControladorCliente:
     def _crear_zip_directorio(self, ruta_origen, ruta_zip):
         """
         Comprime un directorio completo en un archivo ZIP.
-        
-        Args:
-            ruta_origen: Ruta del directorio a comprimir
-            ruta_zip: Ruta donde se guardará el archivo ZIP
         """
         with zipfile.ZipFile(ruta_zip, 'w', zipfile.ZIP_DEFLATED) as zipf:
             for root, dirs, files in os.walk(ruta_origen):
@@ -269,11 +248,6 @@ class ControladorCliente:
     def _crear_zip_archivos(self, lista_archivos, ruta_base, ruta_zip):
         """
         Comprime una lista de archivos en un archivo ZIP manteniendo estructura relativa.
-        
-        Args:
-            lista_archivos: Lista de rutas de archivos a comprimir
-            ruta_base: Ruta base para calcular rutas relativas
-            ruta_zip: Ruta donde se guardará el archivo ZIP
         """
         with zipfile.ZipFile(ruta_zip, 'w', zipfile.ZIP_DEFLATED) as zipf:
             for archivo_path in lista_archivos:
@@ -283,12 +257,6 @@ class ControladorCliente:
     def _codificar_archivo_base64(self, ruta_archivo):
         """
         Lee un archivo y lo codifica en base64.
-        
-        Args:
-            ruta_archivo: Ruta del archivo a codificar
-            
-        Returns:
-            String con el contenido codificado en base64
         """
         with open(ruta_archivo, "rb") as f:
             return base64.b64encode(f.read()).decode()
@@ -296,13 +264,6 @@ class ControladorCliente:
     def _enviar_zip_al_servidor(self, ruta_zip, nombre_archivo, ruta_destino, accion_respuesta, **datos_extra):
         """
         Codifica un archivo ZIP y lo envía al servidor con metadatos.
-        
-        Args:
-            ruta_zip: Ruta del archivo ZIP a enviar
-            nombre_archivo: Nombre que tendrá el archivo en destino
-            ruta_destino: Ruta destino en el servidor
-            accion_respuesta: Nombre de la acción de respuesta
-            **datos_extra: Datos adicionales a incluir en la respuesta
         """
         datos_zip = self._codificar_archivo_base64(ruta_zip)
         
@@ -476,7 +437,8 @@ class ControladorCliente:
             def procesar_directorio(temp_zip_path):
                 self._crear_zip_directorio(ruta_origen, temp_zip_path)
                 
-                nombre_directorio = os.path.basename(ruta_origen.rstrip(os.sep))
+                ruta_normalizada = os.path.normpath(ruta_origen)
+                nombre_directorio = os.path.basename(ruta_normalizada)
                 
                 self._enviar_zip_al_servidor(
                     temp_zip_path,
