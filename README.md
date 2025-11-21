@@ -25,8 +25,6 @@
    pip install -r requirements.txt
    ```
 
----
-
 ## 🚀 Uso del Builder (cliente)
 
 1. Acceder a la carpeta del cliente:
@@ -63,7 +61,6 @@
    * Presionar **Generar EXE**.
    * Esperar a que finalice el proceso.
 
----
 
 ## 🧪 Configuración de Entorno Virtual (Oracle VirtualBox)
 
@@ -85,7 +82,6 @@ Para realizar prácticas de forma segura, se recomienda usar una máquina virtua
 
    * Ajustar a **Puente (Bridged Adapter)** para permitir comunicación LAN entre servidor y cliente simulado.
 
----
 
 ## 🖥️ Ejecución del Servidor
 
@@ -111,7 +107,6 @@ Para realizar prácticas de forma segura, se recomienda usar una máquina virtua
 
    * Presionar el botón **Iniciar servidor**.
 
----
 
 ## 🧩 Ejecución del Agente en la Máquina Virtual (Víctima Simulada)
 
@@ -120,13 +115,11 @@ Para realizar prácticas de forma segura, se recomienda usar una máquina virtua
 
 2. Ejecutarlo dentro de la máquina virtual.
 
----
 
 ## 🕹️ Control desde el Servidor
 
 Una vez establecida la conexión, desde el servidor podrás realizar las acciones habilitadas dentro del entorno controlado de laboratorio.
 
----
 
 ## 📘 Notas Finales
 
