@@ -1,4 +1,4 @@
-# 🛡️ Herramienta Educativa para Simulación de Ataques de Ransomware tipo RAT (Remote Access Tool) en Windows
+# 🛡️ Herramienta Educativa para Simulación de Ataques de Malware tipo RAT en Windows
 
 > **⚠️ Aviso Importante**
 > Este proyecto se proporciona **exclusivamente con fines educativos**, para prácticas de laboratorio, análisis de seguridad y formación en ciberseguridad.
