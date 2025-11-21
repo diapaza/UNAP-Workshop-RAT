@@ -94,13 +94,13 @@ Para realizar prácticas de forma segura, se recomienda usar una máquina virtua
 2. Iniciar el servidor:
 
    ```bash
-   python gui.py
+   python main.py
    ```
 
    o
 
    ```bash
-   py gui.py
+   py main.py
    ```
 
 3. En la interfaz gráfica:
